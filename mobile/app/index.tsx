@@ -26,6 +26,7 @@ export default function App() {
     discovery,
   );
   async function HandleGithubOAuthCode(code: string) {
+    await SecureStore.deleteItemAsync('token')
     const response = await api.post('/register', {
       code,
     })
